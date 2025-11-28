@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyData", menuName = "Game/EnemyData")]
+[CreateAssetMenu(menuName = "Game/EnemyData")]
 public class EnemyData : ScriptableObject
 {
+    [Header("敵の名前")]
+    public string EnemyName;
+
     [Header("最大HP")]
     public int MAXHP;
 
