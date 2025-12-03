@@ -5,19 +5,15 @@ using UnityEngine;
 /// </summary>
 public class CarMove : MonoBehaviour
 {
-    /// <summary>
-    /// 到着地点
-    /// </summary>
-    [SerializeField] Vector3 _targetPosition;
-    /// <summary>
-    /// 車の動く速さ
-    /// </summary>
-    [SerializeField] float _moveSpeed;
+    [Header("到着地点")]
+    [SerializeField]private Vector3 _targetPosition;
+    [Header("車の動く速さ")]
+    [SerializeField]private float _moveSpeed;
    
     /// <summary>
     /// スタートのタイミングでtrueに切り替える
     /// </summary>
-    bool _isMoving;
+   　private bool _isMoving;
 
     private void Update()
     {

@@ -6,18 +6,19 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerActionsInput : MonoBehaviour
 {
-    [SerializeField] PlayerMove _playerMove;
+    [Header("PlayerMove")]
+    [SerializeField] private PlayerMove _playerMove;
+    [Header("MouseController")]
     [SerializeField] MouseController _mouseController;
-    private PlayerActions _playerActions;
+    [Header("PlayerAttack")]
+    [SerializeField] private PlayerAttack _playerAttack;
+    [Header("PlayerActions")]
+    [SerializeField] private PlayerActions _playerActions;
+    [Header("Rayの長さ")]
+    [SerializeField] private float _rangeDistance;
+    [Header("エネミーのレイヤー")]
+    [SerializeField] private LayerMask _enemyLayer;
 
-    /// <summary>
-    /// Rayの長さ
-    /// </summary>
-    [SerializeField] float _rangeDistance;
-    /// <summary>
-    /// エネミーのレイヤー
-    /// </summary>
-    [SerializeField] LayerMask _enemyLayer;
     /// <summary>
     /// キーのコールバックを入れる
     /// </summary>
@@ -44,10 +45,14 @@ public class PlayerActionsInput : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+       
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
         RaycastHit hit;
         _isEnemyTarget = Physics.Raycast(ray, out hit, _rangeDistance, _enemyLayer);
         _mouseController.ColorChange(_isEnemyTarget);
+
+        Debug.Log(_isEnemyTarget);
+        Debug.DrawRay(ray.origin, ray.direction * _rangeDistance, Color.red);
     }
 
     /// <summary>
@@ -67,6 +72,6 @@ public class PlayerActionsInput : MonoBehaviour
     private void HandleAttack(InputAction.CallbackContext context)
     {
         if (!_isEnemyTarget) return;
-        _playerMove.Attack();
+        _playerAttack.Attack();
     }
 }

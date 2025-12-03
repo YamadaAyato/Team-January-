@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,16 +7,11 @@ using UnityEngine.UI;
 /// </summary>
 public class MouseController : MonoBehaviour
 {
-    /// <summary>
-    /// 画面中央に表示するポインター
-    /// </summary>
-    [SerializeField] Image _targetPosition;
-
+    [SerializeField] private Image _targetPosition;
     private void Update()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-        _targetPosition.rectTransform.position = Input.mousePosition;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     /// <summary>
@@ -24,9 +20,11 @@ public class MouseController : MonoBehaviour
     /// <param name="isEnemyTarget"></param>
     public void ColorChange(bool isEnemyTarget)
     {
-        if(isEnemyTarget)
+        if (isEnemyTarget)
             _targetPosition.color = Color.red;
         else
             _targetPosition.color = Color.white;
     }
+
+
 }

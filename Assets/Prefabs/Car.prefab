@@ -128,6 +128,8 @@ GameObject:
   - component: {fileID: 6220810843716311993}
   - component: {fileID: 4455893767141204190}
   - component: {fileID: 3162857305602976032}
+  - component: {fileID: -3162633408426231645}
+  - component: {fileID: 5961079402356617020}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -240,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb51b10caa21294e833869455515089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMove
-  _targetPosition: {x: 0, y: 0, z: 10000}
+  _targetPosition: {x: 0, y: 0, z: 100000}
   _moveSpeed: 3
 --- !u!114 &4455893767141204190
 MonoBehaviour:
@@ -255,7 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerActionsInput
   _playerMove: {fileID: 3162857305602976032}
-  _mouseController: {fileID: 0}
+  _mouseController: {fileID: 5961079402356617020}
+  _playerAttack: {fileID: -3162633408426231645}
   _rangeDistance: 10000
   _enemyLayer:
     serializedVersion: 2
@@ -273,3 +276,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _moveForce: 5
+--- !u!114 &-3162633408426231645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601781029550414697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c10e7e6fb505ef459085a28620c1c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  _attack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5961079402356617020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601781029550414697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91daca7a5534ba143858c4cdba3a1bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseController
